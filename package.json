@@ -42,11 +42,16 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node server/server.js | react-scripts start",
-    "build": "node server/server.js | react-scripts build",
-    "prepare": "node server/server.js | react-scripts build",
-    "test": "node server/server.js | react-scripts test",
-    "eject": "node server/server.js | react-scripts eject"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "nodemon server/server.js",
+    "client": "react-scripts start",
+    "start": "node server/server.js",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "install-server": "cd server && npm install",
+    "install-client": "npm install",
+    "install-all": "npm run install-server && npm run install-client"
   },
   "eslintConfig": {
     "extends": [
